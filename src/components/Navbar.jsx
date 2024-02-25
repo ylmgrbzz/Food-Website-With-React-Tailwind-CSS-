@@ -28,27 +28,41 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
         <AiOutlineSearch size={25} />
-        <input className="" type="" placeholder="" />
+        <input
+          className="bg-transparent focus:outline-none w-full ml-2"
+          type="text"
+          placeholder="Search Foods"
+        />
       </div>
-      <button className="">
+      <button className="bg-black text-white hidden md:flex items-center py-2 rounded-full">
         <BsFillCartFill size={20} className="mr-2" /> Cart
       </button>
 
-      {showMenu ? <div className=""></div> : ""}
+      {showMenu ? (
+        <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
+      ) : (
+        ""
+      )}
 
-      <div className={showMenu}>
+      <div
+        className={
+          showMenu
+            ? "fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300"
+            : "fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300"
+        }
+      >
         <AiOutlineClose
           onClick={() => setShowMenu(!showMenu)}
           size={30}
-          className=""
+          className="absolute top-4 right-4 cursor-pointer"
         />
         <h2 className="">
           Best <span className="font-bold">Eats</span>
         </h2>
         <nav>
-          <ul className="">
+          <ul className="flex flex-col p-4 text-gray-800 ">
             <li className="text-xl py-4 flex">
               <TbTruckDelivery size={25} className="mr-4" /> Orders
             </li>
